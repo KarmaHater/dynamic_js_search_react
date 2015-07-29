@@ -43,15 +43,18 @@ var PersonList = React.createClass({
   },
   handleChange: function(e) {
     this.setState({searchString:e.target.value});
+    this.filter();
+  },
+  filter: function() {
+    var val = this.state.searchString.trim().toLowerCase();
+    if(val.length > 0) {
+      this.results = this.props.data.filter(function(person) {
+        return person.name.toLowerCase().match( searchString );
+      });
+    }
   },
   render: function() {
-    var results = this.props.data,
-      searchString = this.state.searchString.trim().toLowerCase();
-      if(searchString.length > 0) {
-        results = results.filter(function(person) {
-          return person.name.toLowerCase().match( searchString );
-        });
-      }
+    var results = this.results || this.props.data
     return (
       <div>
         <article id="searcharea">
@@ -60,10 +63,10 @@ var PersonList = React.createClass({
         </article>
         <article id="update">
           <ul id="search-results">
-             {
-               results.map(function(person){
+             { 
+              results.map(function(person){
                   return <Person name={person.name} img={person.img} address={person.address}/>
-              })
+              }) 
             }
           </ul>
         </article>
