@@ -9,7 +9,7 @@ var App = React.createClass({
       url: "data.json"
     })
     .success(function(data) {
-      this.people = data
+      this.data = data
       this.setState({dataLoaded: true})
     }.bind(this))
     .error(function( xhr, error ) {
@@ -19,8 +19,7 @@ var App = React.createClass({
   displayViews: function() {
     return (
       <div>
-        <Search />
-        < PersonList data={this.people} />
+        < PersonList data={this.data} />
       </div>
     );
   },
@@ -28,38 +27,44 @@ var App = React.createClass({
     this.loadData()
     if (this.state.dataLoaded) {
       return this.displayViews()
+      this.setState({dataLoaded: false})
     } else {
       return (
         <div/>
       )
     }
-
   }
 });
 
-var Search = React.createClass({
+
+var PersonList = React.createClass({
+  getInitialState: function(){
+    return { searchString: '' };
+  },
+  handleChange: function(e) {
+    this.setState({searchString:e.target.value});
+  },
   render: function() {
+    var results = this.props.data,
+      searchString = this.state.searchString.trim().toLowerCase();
+      if(searchString.length > 0) {
+        results = results.filter(function(person) {
+          return person.name.toLowerCase().match( searchString );
+        });
+      }
     return (
       <div>
         <article id="searcharea">
           <label for="search">Search for User</label>
-          <input type="text" name="search" id="search" />
+          <input value={this.state.searchString} onChange={this.handleChange} type="text" name="search" id="search" />
         </article>
-      </div>
-    );
-  }
-});
-
-var PersonList = React.createClass({
-  render: function() {
-    var people = this.props.data.map(function(person){
-      return <Person name={person.name} img={person.img} address={person.address}/>
-    })
-    return (
-      <div>
         <article id="update">
           <ul id="search-results">
-             {people}
+             {
+               results.map(function(person){
+                  return <Person name={person.name} img={person.img} address={person.address}/>
+              })
+            }
           </ul>
         </article>
       </div>
