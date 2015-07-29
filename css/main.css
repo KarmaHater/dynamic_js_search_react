@@ -4,13 +4,13 @@ body {
 
 .image-box {
   overflow: hidden;
+  float: left;
+  width: 65%;
   height: 160px;
   margin-bottom: 5px;
 }
 
 img {
-  width: 65%;
-  float: left;
   margin-right: 10px;
   padding-top: 20px;
 }
@@ -79,6 +79,11 @@ input#search {
   font-family: Arial;
   color: #BF5841;
   margin-bottom: 10px;
+}
+
+.content {
+  float:right;
+  width: 30%;
 }
 
 @-webkit-keyframes fadein {
