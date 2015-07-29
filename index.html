@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Data Search</title>
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+<body>
+  <article id="update">
+    <ul id="search-results">
+      
+    </ul>
+  </article>
+  
+</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js">
+  </script>
+<script src="vendor/jquery-1.11.3.min.js"></script>
+<script src="vendor/handlebars-v3.0.3.js"></script>
+  <script src="js/main.js" type="text/jsx"></script>
+<script id="search-results-temp" type="text/x-handlebars-template">
+  <li class="entry">
+  <div class="image-box">
+    <img src={{img}} alt="">
+  <div>
+    <h2>{{name}}</h2>
+    <div class="body">
+      {{address}}
+    </div>
+  </li>
+</script>
+</html>

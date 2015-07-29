@@ -1,0 +1,94 @@
+body {
+  background: #DAD7C7
+}
+
+.image-box {
+  overflow: hidden;
+  height: 160px;
+  margin-bottom: 5px;
+}
+
+img {
+  width: 65%;
+  float: left;
+  margin-right: 10px;
+  padding-top: 20px;
+}
+
+#searcharea {
+  margin: 0 auto;
+  text-align: center;
+  background: #BF996B;
+  padding: 10px;
+  width: 30%;
+  border-radius: 10px 10px 0 0;
+}
+
+#searcharea label {
+  font: bold 1.3em Arial;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  color: #A61C1C;
+}
+
+input#search {
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#update {
+  font-family: Georgia;
+  width: 70%;
+  margin: 0 auto;
+  border-top: 1px dotted #CCC;
+}
+
+#update ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#update ul li {
+  width: 100%;
+  padding: 0 20px;
+  background: #EEE;
+  padding-bottom: 10px;
+  height: 87px;
+  overflow: hidden;
+  border: 1px dotted #CCC;
+  -webkit-animation: fadein 1s;
+  animation: fadein 1s;;
+}
+
+#update li:hover {
+  background: #FFFCE5;
+  height: auto;
+  min-height: 160px;
+  overflow: visible;
+}
+
+#update h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+  padding-bottom: 5px;
+  padding-top: 20px;
+  font-family: Arial;
+  color: #BF5841;
+  margin-bottom: 10px;
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0.3;}
+  100% {opacity: 1.0;}
+}
+
+@keyframes fadein {
+  0% { opacity: 0.3;}
+  100% {opacity: 1.0;}
+}
+
+
